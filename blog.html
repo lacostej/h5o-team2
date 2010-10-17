@@ -31,6 +31,7 @@
 
 			InitInlineEditingFunctions();
 			Html5Oslo.usersHandler.init();
+			Html5Oslo.keyboardHandler.init();
 		});
 		function addPost(t,d,c) {
 		    $("#content").append(Mustache.to_html(postTemplate, {title: t, publishedDate: d, content: c}));
@@ -99,6 +100,7 @@
 	<script type="text/javascript" src="html5oslo.ratings.js"></script>
 	<script type="text/javascript" src="html5oslo.storage.js"></script>
 	<script type="text/javascript" src="html5oslo.users.js"></script>
+	<script type="text/javascript" src="html5oslo.keyboard.js"></script>
 	<!--[if lt IE 9]>
 	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
