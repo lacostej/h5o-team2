@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-	<title>Buck Blog</title>
+	<title>Make-a-buck-blog</title>
 	<meta charset="utf-8">
 	<link href="skin.css" type="text/css" rel="stylesheet">
 	<script type="text/javascript" src="jquery-1.4.2.min.js"></script>
@@ -36,8 +36,7 @@
 </head>
 <body>
 	<header role=banner>
-	    <canvas id="myLogoCanvas" width="300" height="150">
-You should see a nice canvas logo here</canvas>
+	    <canvas id="myLogoCanvas" width="300" height="150">Framsia Html5 Oslo Code Camp 2010</canvas>
 		<h1>Buck blog</h1>
 	</header>
 	<section id="content">
@@ -53,11 +52,11 @@ You should see a nice canvas logo here</canvas>
 		<small>Just fucking copy this, HTML5 Code Camp 2010</small>
 	</footer>
 	<script>
-	    var postTemplate = '<article class="post" draggable rel="{{id}}"><header><h1>{{title}}</h1>' +
-		    '<p><time datetime="{{publishDate}}">{{publishDate}}</time></p>' +
-		    '</header><p>{{content}}</p>' +
-		    '<ul class="comments"></ul>' +
-		    '</article>';
+    var postTemplate = '<article class="post" draggable rel="{{id}}"><header><h1>{{title}}</h1>' +
+	    '<p><time datetime="{{publishDate}}">{{publishDate}}</time></p>' +
+	    '</header><p>{{content}}</p>' +
+	    '<ul class="comments"></ul>' +
+	    '</article>';
     </script>
 	<script type="text/javascript" src="mustache.js"></script>
 	<script type="text/javascript" src="html5oslo.posts.js"></script>
