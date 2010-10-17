@@ -95,4 +95,12 @@
     #nameLabel, #loggedInLabel { color: white; }
 	header[role=banner] {color:white; }
     .notice { color: red; }
-
+    .username {
+        color: pink;
+        font-size: 15px;
+    }
+    input[type=button], input[type=submit] {
+        background-color: pink;
+        color: black;
+        font-size: 15px;
+    }

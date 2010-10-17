@@ -48,10 +48,10 @@
 	    <canvas id="myLogoCanvas" width="300" height="150">Framsia Html5 Oslo Code Camp 2010</canvas>
 		<form id="loginForm">
 	      <label id=nameLabel>Name:</label>
-	      <input name=login type="text" size="20" pattern="[a-z]+" title="a login is all lower case, no digits" required />
+	      <input class="username" name=login type="text" size="20" pattern="[a-z]+" title="a login is all lower case, no digits" required />
 		  <!-- validation doesn t work -->
 	      <!--input name=password type=password size="20" onforminput="setCustomValidity(value != login.value ? 'Incorrect password!' : ''" /-->
-		  <input id=loginButton type="button" value="Login" onclick="Html5Oslo.usersHandler.onLogin(); return false;"/>
+		  <input id=loginButton type="submit" value="Login" onclick="Html5Oslo.usersHandler.onLogin(); return false;"/>
 	    </form>
 	    <form id="logoutForm" class=hide>
 	      <label id=loggedInLabel>Logged in as: <div id=username></div></label>
@@ -61,6 +61,8 @@
 	</header>
 	<section id="content">
 	</section>
+	<!--- 
+	    Feature will be added next Code Camp
 	<nav>
 	    <a href="#">dasdasdsad</a><br>
 	    <a href="#">dasdasdsad</a><br>
@@ -75,6 +77,7 @@
 	    <a href="#">dasdasdsad</a><br>
 	    <a href="#">dasdasdsad</a><br>
     </nav>
+    -->
 	<footer>
 		<small>Just fucking copy this, HTML5 Code Camp 2010</small>
 	</footer>
