@@ -6,6 +6,7 @@
 	<link href="skin.css" type="text/css" rel="stylesheet">
 	<script type="text/javascript" src="jquery-1.4.2.min.js"></script>
 	<script src="myCanvasLogo.js"></script>
+	<script src="inline-editing.js"></script>
 
 	<script>
 	(function() {
@@ -27,6 +28,8 @@
 		    Html5Oslo.postsHandler.render();
 		    Html5Oslo.commentsHandler.addFeedbackFields();
 //			store.clear();
+
+			InitInlineEditingFunctions();
 		});
 		function addPost(t,d,c) {
 		    $("#content").append(Mustache.to_html(postTemplate, {title: t, publishedDate: d, content: c}));
@@ -61,11 +64,25 @@
 	</footer>
 	</div>
 	<script>
-    var postTemplate = '<article class="post" draggable rel="{{id}}"><header><h1>{{title}}</h1>' +
-	    '<p><time datetime="{{publishDate}}">{{publishDate}}</time></p>' +
-	    '</header><p>{{content}}</p>' +
+    var postTemplate = "<article class='post' rel='{{id}}'> " +
+	        "<header>"+
+            "<a class='savePost1' href='#'>Save</a> <a class='editPost1' href='#'>Edit</a> <a class='cancelPost1' href='#'>Cancel</a>" +
+            "<div id='headingSizeSlider'><br />" +
+            "   <input type='range' onchange='changeHeadingSize(event)' id='headingsize' min='15' max='90' value='24' /> " +
+            "</div> " +
+            "<h2 id='h'>{{title}}</h2> " +
+            "<p><time datetime='{{publishDate}}'>{{publishDate}}</time></p>" +
+			"</header>" +
+            "<p>{{content}}</p> " +
+            "<div> " +
+            "<video controls='controls'> " +
+            "<source src='test.mp4' /> " +
+            "<source src='test.ogg' /> " +
+            "</video> " +
+            "</div> " +
+            "<div id='drop1'>Drop files here</div> " +
 	    '<strong>Comments:</strong><ul class="comments"></ul>' +
-	    '</article>';
+        "</article>";
     </script>
 	<script type="text/javascript" src="mustache.js"></script>
 	<script type="text/javascript" src="html5oslo.posts.js"></script>
