@@ -15,6 +15,8 @@ Html5Oslo.usersHandler = (function() {
 	    $("#loginForm").removeClass("hide");
 	    $("#logoutForm").addClass("hide");
 		localStorage.removeItem("username");
+        jQuery('.editPost1').hide();
+		
 	  }
 	  function isLoggedIn() {
 	    return localStorage.getItem("username") != null;
