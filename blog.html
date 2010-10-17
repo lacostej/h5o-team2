@@ -32,6 +32,8 @@
 		    Html5Oslo.commentsHandler.addFeedbackFields();
 //			store.clear();
 			Html5Oslo.inlineHandler.InitInlineEditingFunctions(store);
+			Html5Oslo.usersHandler.init();
+			Html5Oslo.keyboardHandler.init();
 		});
 		function addPost(t,d,c) {
 		    $("#content").append(Mustache.to_html(postTemplate, {title: t, publishedDate: d, content: c}));
@@ -43,6 +45,18 @@
     <div class="container">
 	<header role=banner>
 	    <canvas id="myLogoCanvas" width="300" height="150">Framsia Html5 Oslo Code Camp 2010</canvas>
+		<form id="loginForm">
+	      <label id=nameLabel>Name:</label>
+	      <input name=login type=text size="20" pattern="[a-z]+" title="a login is all lower case, no digits" required />
+		  <!-- validation doesn t work -->
+	      <!--input name=password type=password size="20" onforminput="setCustomValidity(value != login.value ? 'Incorrect password!' : ''" /-->
+		  <input id=loginButton type=button value="Login" onclick="Html5Oslo.usersHandler.onLogin(); return false;"/>
+	    </form>
+	    <form id="logoutForm" class=hide>
+	      <label id=loggedInLabel>Logged in as: <div id=username></div></label>
+		  <input id=logoutButton type=submit value="Logout" onclick="Html5Oslo.usersHandler.onLogout(); return false;"/>
+	    </form>	  
+
 		<h1>Buck blog</h1>
 	</header>
 	<section id="content">
@@ -68,9 +82,14 @@
 	<script>
     var postTemplate = "<article class='post' rel='{{id}}'> " +
 	        "<header>"+
+/*
             "<a class='savePost1' href='#'>Save</a> <a class='editPost1' href='#'>Edit</a> <a class='cancelPost1' href='#'>Cancel</a>" +
             "<div id='headingSizeSlider'><br>" +
             "   <input type='range' onchange='changeHeadingSize(event)' id='headingsize' min='15' max='90' value='24'> " +
+*/
+            "<a class='savePost1' href='javascript:void(0);'>Save</a> <a class='editPost1' href='javascript:void(0);'>Edit</a> <a class='cancelPost1' href='javascript:void(0);'>Cancel</a>" +
+            "<div id='headingSizeSlider'><br />" +
+            "   <input type='range' onchange='changeHeadingSize(event)' id='headingsize' min='15' max='90' value='24' /> " +
             "</div> " +
             "<h2 id='h'>{{title}}</h2> " +
             "<p><time datetime='{{publishDate}}'>{{publishDate}}</time></p>" +
@@ -91,6 +110,8 @@
 	<script type="text/javascript" src="html5oslo.comments.js"></script>
 	<script type="text/javascript" src="html5oslo.ratings.js"></script>
 	<script type="text/javascript" src="html5oslo.storage.js"></script>
+	<script type="text/javascript" src="html5oslo.users.js"></script>
+	<script type="text/javascript" src="html5oslo.keyboard.js"></script>
 	<!--[if lt IE 9]>
 	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->

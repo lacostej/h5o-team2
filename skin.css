@@ -91,3 +91,8 @@
             height:100px;
             background-color:#cccccc;
         }  
+    #loginForm, #logoutForm { float: right; right: 5px; margin-top: 10px;}
+    #nameLabel, #loggedInLabel { color: white; }
+	header[role=banner] {color:white; }
+    .notice { color: red; }
+

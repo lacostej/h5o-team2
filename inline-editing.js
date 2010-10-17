@@ -1,5 +1,4 @@
 var Html5Oslo = Html5Oslo || {};
-
 Html5Oslo.inlineHandler = (function() {
     var store;
     function SetReadonlyMode(obj) {
@@ -25,6 +24,10 @@ Html5Oslo.inlineHandler = (function() {
         $('#headingSizeSlider').hide();
         $('.savePost1').hide();
         $('.cancelPost1').hide();
+        if (!Html5Oslo.usersHandler.isAdmin())
+		{
+			jQuery('.editPost1').hide();
+		}
         $('.editPost1').click(function () {
             if ($(this).text() == 'Edit') {
                 SetEditMode(this);
