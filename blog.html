@@ -13,6 +13,13 @@
 		jQuery(document).ready(function(ev){
 			loadMyLogoCanvas();
 
+			var videos = "<div> " +
+            "<video controls='controls'> " +
+            "<source src='test.mp4' /> " +
+            "<source src='test.ogg' /> " +
+            "</video> " +
+            "</div> ";
+			
 		    var store = Html5Oslo.storage;
 		    store.init();
 		    var posts = store.posts();
@@ -22,7 +29,7 @@
 		                {name:"Dylan S", content:"Let's get married, I love you!! You guys should totally work for SitePen!"},
 		                {name:"Robban", content:"Fan va ni kör hårt!!"}]});
 		        store.savePost({id: 2, title: "Jerome broke his screen. Doh !", pubDate: "2010-10-16", content: "Doh!", rating: 2, comments:[]});
-		        store.savePost({id: 1, title: "We arrived!", pubDate: "2010-10-15", content: "We drank some beers", rating: 5, comments:[]});
+		        store.savePost({id: 1, title: "We arrived!", pubDate: "2010-10-15", content: "We drank some beers<br>" + videos, rating: 5, comments:[]});
 		    }
 		    Html5Oslo.ratingsHandler.init(store);
 			Html5Oslo.commentsHandler.init(store);
@@ -93,12 +100,6 @@
             "<p><time datetime='{{publishDate}}'>{{publishDate}}</time></p>" +
 			"</header>" +
             "<p>{{{content}}}</p> " +
-            "<div> " +
-            "<video controls='controls'> " +
-            "<source src='test.mp4'> " +
-            "<source src='test.ogg'> " +
-            "</video> " +
-            "</div> " +
             "<div id='drop1'>Drop files here</div> " +
 	    '<strong>Comments:</strong><ul class="comments"></ul>' +
         "</article>";
