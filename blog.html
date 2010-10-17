@@ -16,7 +16,9 @@
 		    store.init();
 		    var posts = store.posts();
 		    if (posts == null || posts.length==0) {
-		        store.savePost({id: 1, title: "I rock", pubDate: "2010-10-18", content: "I rock rock rock<br>rock rock", rating: 2, comments:[]});
+		        store.savePost({id: 3, title: "We're merging stuff !", pubDate: "2010-10-17", content: "A few bugs, and Windows sucks", rating: 4, comments:[]});
+		        store.savePost({id: 2, title: "Jerome broke his screen. Doh !", pubDate: "2010-10-16", content: "Doh!", rating: 2, comments:[]});
+		        store.savePost({id: 1, title: "We arrived!", pubDate: "2010-10-15", content: "We drank some beers", rating: 5, comments:[]});
 		    }
 		    Html5Oslo.ratingsHandler.init(store);
 			Html5Oslo.commentsHandler.init(store);
