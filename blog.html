@@ -15,19 +15,10 @@
 		        store.savePost({id: 1, title: "I rock", pubDate: "2010-10-18", content: "I rock rock rock<br>rock rock", rating: 2, comments:[]});
 		    }
 		    Html5Oslo.ratingsHandler.init(store);
-		    for (var i=0, li = posts.length; i <li; i++) {
-		        var aPost = posts[i];
-		        var obj = $("#content").append(Mustache.to_html(postTemplate, aPost));
-		        Html5Oslo.ratingsHandler.render();
-		        var comments = aPost.comments;
-		        if (comments.length > 0) {
-		            for (var j=0, lli = comments.length; j<lli; j++) {
-    		            Html5Oslo.commentsHandler.renderComment($(obj), comments[j]);
-    		            break;
-    		        }
-		        }
-		    }
 			Html5Oslo.commentsHandler.init(store);
+
+		    Html5Oslo.postsHandler.init(store, Html5Oslo.ratingsHandler, Html5Oslo.commentsHandler);
+		    Html5Oslo.postsHandler.render();
 //			store.clear();
 		});
 		function addPost(t,d,c) {
@@ -62,6 +53,7 @@
 		    '</article>';
     </script>
 	<script type="text/javascript" src="mustache.js"></script>
+	<script type="text/javascript" src="html5oslo.posts.js"></script>
 	<script type="text/javascript" src="html5oslo.comments.js"></script>
 	<script type="text/javascript" src="html5oslo.ratings.js"></script>
 	<script type="text/javascript" src="html5oslo.storage.js"></script>
