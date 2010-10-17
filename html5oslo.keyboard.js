@@ -123,7 +123,15 @@ function init()
                 }
             }
         }
-		else if (theKey === 114)  // r
+        else if (theKey === 101)  // e
+        {
+            if (curPost >= 0 && curPost < allPosts.snapshotLength)
+            {
+			    if (Html5Oslo.usersHandler.isAdmin()) {
+			       Html5Oslo.inlineHandler.SetEditMode($(allPosts.snapshotItem(curPost), ".editPost1"));
+				}
+            }
+        }		else if (theKey === 114)  // r
         {
             if (curPost >= 0 && curPost < allPosts.snapshotLength)
             {
@@ -184,7 +192,7 @@ function init()
     help = document.createElement("div");
     help.className = "banner banner-background keyboard-help-banner";
     help.innerHTML = "<div class='features'><div class='primary-message'>Features</div> \
-	                  <ul><li>Multi user editing simulated using persisted login<li>html5 forms and validation<li>canvas (text, transformations + image)<li>reorder elements (drag&drop within page)<li>keyboard shortcuts (navigation)<li>WYWIWIG editor</ul></div>  \
+	                  <ul><li>Multi user editing simulated using persisted login<li>html5 forms and validation<li>canvas (text, transformations + image)<li>reorder elements (drag&drop within page) (NOT YET MERGED)<li>keyboard shortcuts (navigation)<li>WYWIWIG editor with drag and drop pictures<li>video support</ul></div>  \
 	                  <div class='primary-message'>Keyboard shortcuts</div> \
                       <div style='height: 120px;' class='secondary-message resized'> \
                       <div id='keyboard-help-container'> \
@@ -194,9 +202,9 @@ function init()
                       <th colspan='2'>Acting on posts</th> \
                       </tr><tr> \
                       <td class='key'>j/k:</td><td class='desc'>next/previous post</td> \
-                      <td class='key'>c:</td><td class='desc'>add comment</td> \
+                      <td class='key'>e:</td><td class='desc'>edit comment</td> \
                       </tr><tr> \
-                      <td colspan='2'>&nbsp;</td><td class='key'>r:</td><td class='desc'>reorder rows based on time</td> \
+                      <td colspan='2'>&nbsp;</td><td class='key'>c:</td><td class='desc'>add comment</td> \
                       </tr></tbody></table></div></div>";
     document.addEventListener('keypress', function(event) { KeyPressed(event); }, true);
     
