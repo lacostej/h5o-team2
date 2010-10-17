@@ -1,0 +1,36 @@
+TODO
+
+* edit post content (drag and drop files)
+* submit comments and persist them
+* allow editing comments based on username
+* allow editing posts when admin
+
+
+Goal:
+* learning > delivery
+** learn by delivering
+
+Decisions
+* local (no server for all)
+
+Happenings
+* bug(s)
+* PC died
+* not all could git
+
+Organization
+* no functional design
+** very FOSS cathedral and bazaar
+* start merging late (1030 today)
+* small changes
+** git rules
+
+Learnings
+* need the net...
+* one can do much with little (editor, browser, git, net)
+
+
+Improvements (on the coding performance)
+* polish feature focus ?
+* sharing environment from the start ?
+* less beers, more sleep
