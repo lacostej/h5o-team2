@@ -22,7 +22,6 @@ Html5Oslo.inlineHandler = (function() {
     }
     function InitInlineEditingFunctions(s) {
         store = s;
-        
         $('#headingSizeSlider').hide();
         $('.savePost1').hide();
         $('.cancelPost1').hide();
@@ -43,6 +42,7 @@ Html5Oslo.inlineHandler = (function() {
                     pst.title = h2.text();
                     pst.content = p.text();
                     store.savePost(pst);
+                    SetReadonlyMode(this);
                     return;
                 }
             });
