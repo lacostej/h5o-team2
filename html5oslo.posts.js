@@ -9,10 +9,10 @@ Html5Oslo.postsHandler = (function() {
             var obj = $("#content").append(Mustache.to_html(postTemplate, aPost));
             ratingsHandler.render();
             var comments = aPost.comments;
+            console.log("comments: " + comments.length);
             if (comments.length > 0) {
                 for (var j=0, lli = comments.length; j<lli; j++) {
 	                commentsHandler.renderComment($(obj), comments[j]);
-	                break;
 	            }
             }
         }

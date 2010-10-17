@@ -33,6 +33,7 @@ Html5Oslo.commentsHandler = (function(){
 	            });
 	            return false;
 	        });
+            $(".addCommentAction").click(showIt);
 	    });
 	};
 	function hideIt(ev) {
@@ -74,8 +75,6 @@ Html5Oslo.commentsHandler = (function(){
 /*            for (var i =0,li = storedComments.length; i < li; i++) {
                 $(elm).append(Mustache.to_html(commentTemplate,storedComments[i]));
             }*/
-            addFeedbackFields();
-            $(".addCommentAction").click(showIt);
         }
     };
 })();
