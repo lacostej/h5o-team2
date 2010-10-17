@@ -123,7 +123,15 @@ function init()
                 }
             }
         }
-		else if (theKey === 114)  // r
+        else if (theKey === 101)  // e
+        {
+            if (curPost >= 0 && curPost < allPosts.snapshotLength)
+            {
+			    if (Html5Oslo.usersHandler.isAdmin()) {
+			       Html5Oslo.inlineHandler.SetEditMode($(allPosts.snapshotItem(curPost), ".editPost1"));
+				}
+            }
+        }		else if (theKey === 114)  // r
         {
             if (curPost >= 0 && curPost < allPosts.snapshotLength)
             {
@@ -194,9 +202,9 @@ function init()
                       <th colspan='2'>Acting on posts</th> \
                       </tr><tr> \
                       <td class='key'>j/k:</td><td class='desc'>next/previous post</td> \
-                      <td class='key'>c:</td><td class='desc'>add comment</td> \
+                      <td class='key'>e:</td><td class='desc'>edit comment</td> \
                       </tr><tr> \
-                      <td colspan='2'>&nbsp;</td><td class='key'>r:</td><td class='desc'>reorder rows based on time</td> \
+                      <td colspan='2'>&nbsp;</td><td class='key'>c:</td><td class='desc'>add comment</td> \
                       </tr></tbody></table></div></div>";
     document.addEventListener('keypress', function(event) { KeyPressed(event); }, true);
     
