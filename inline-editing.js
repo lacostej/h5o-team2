@@ -18,7 +18,7 @@
             jQuery('#headingSizeSlider').hide();
             jQuery('.savePost1').hide();
             jQuery('.cancelPost1').hide();
-			if (!Html5Oslo.usersHandler.isLoggedIn())
+			if (!Html5Oslo.usersHandler.isAdmin())
 			{
 				jQuery('.editPost1').hide();
 			}
