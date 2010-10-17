@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title>Buck Blog</title>
+	<meta charset="utf-8">
+	<link href="skin.css" type="text/css" rel="stylesheet">
+	<script type="text/javascript" src="jquery-1.4.2.min.js"></script>
+	<script>
+	(function() {
+		jQuery(document).ready(function(ev){
+		    var store = Html5Oslo.storage;
+		    store.init();
+		    var posts = store.posts();
+		    if (posts == null || posts.length==0) {
+		        store.savePost({id: 1, title: "I rock", pubDate: "2010-10-18", content: "I rock rock rock<br>rock rock", rating: 1, comments:[]});
+		    }
+		    for (var i=0, li = posts.length; i <li; i++) {
+		        var aPost = posts[i];
+		        var obj = $("#content").append(Mustache.to_html(postTemplate, aPost));
+		        var comments = aPost.comments;
+		        if (comments.length > 0) {
+		            for (var j=0, lli = comments.length; j<lli; j++) {
+    		            Html5Oslo.commentsHandler.renderComment($(obj), comments[j]);
+    		        }
+		        }
+		    }
+			Html5Oslo.commentsHandler.init(store);
+			Html5Oslo.ratingsHandler.init(store);
+//			store.clear();
+		});
+		function addPost(t,d,c) {
+		    $("#content").append(Mustache.to_html(postTemplate, {title: t, publishedDate: d, content: c}));
+		}
+	})();
+	</script>
+</head>
+<body>
+	<header>
+		<h1>Buck blog</h1>
+	</header>
+	<section id="content">
+	</section>
+	<nav>
+   		<ul>    
+             <li>sadasdas</li>
+             <li>sadasdas</li>
+             <li>sadasdas</li>
+		</ul>
+    </nav>
+	<footer>
+		<small>Just fucking copy this, HTML5 Code Camp 2010</small>
+	</footer>
+	<script>
+	    var postTemplate = '<article class="post" draggable rel="{{id}}"><header><h1>{{title}}</h1>' +
+		    '<p><time datetime="{{publishDate}}">{{publishDate}}</time></p>' +
+		    '</header><p>{{content}}</p>' +
+		    '<ul class="comments"></ul>' +
+		    '</article>';
+    </script>
+	<script type="text/javascript" src="mustache.js"></script>
+	<script type="text/javascript" src="html5oslo.comments.js"></script>
+	<script type="text/javascript" src="html5oslo.ratings.js"></script>
+	<script type="text/javascript" src="html5oslo.storage.js"></script>
+	<!--[if lt IE 9]>
+	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+</body>
+</html>
