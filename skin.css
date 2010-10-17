@@ -62,3 +62,10 @@
 
     #myLogoCanvas { float: left; top: 0px; margin: 0px 5px 00px 0px;}
     header[role=banner] { height: 160px;}
+
+	#drop1
+        {
+            width:100px;
+            height:100px;
+            background-color:#cccccc;
+        }  

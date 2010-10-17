@@ -43,7 +43,9 @@
 
             var dropzone = document.getElementById('drop1');
 // FIXME multiple drop1
-            console.log(dropzone);
+            console.log(dropzone.innerHTML);
+			// doesnt work on opera ??
+			// http://www.thebuzzmedia.com/html5-drag-and-drop-and-file-api-tutorial/
             dropzone.addEventListener("dragover", function (event) {
 			    console.log("bou");
                 event.preventDefault();
