@@ -18,6 +18,10 @@
             jQuery('#headingSizeSlider').hide();
             jQuery('.savePost1').hide();
             jQuery('.cancelPost1').hide();
+			if (!Html5Oslo.usersHandler.isLoggedIn())
+			{
+				jQuery('.editPost1').hide();
+			}
             jQuery('.editPost1').click(function () {
                 if (jQuery(this).text() == 'Edit') {
                     SetEditMode(this);
