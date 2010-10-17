@@ -1,7 +1,7 @@
 var Html5Oslo = Html5Oslo || {};
 
 Html5Oslo.commentsHandler = (function(){
-    var commentTemplate = '<li class="comment"><strong>{{name}}</strong> said:<br> <span class="quote">{{content}}</span></li>';
+    var commentTemplate = '<li class="comment"><strong>{{{name}}}</strong> said:<br> <span class="quote">{{{content}}}</span></li>';
     var feedbackTemplate = '<article role="feedback">' +
     '<header>' +
     '<a id="{{index}}" class="addCommentAction"  href="#">Give feedback!</a>' +
