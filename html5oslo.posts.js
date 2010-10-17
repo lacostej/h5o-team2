@@ -7,7 +7,6 @@ Html5Oslo.postsHandler = (function() {
         for (var i=0, li = posts.length; i <li; i++) {
             var aPost = posts[i];
             var obj = $("#content").append(Mustache.to_html(postTemplate, aPost));
-            ratingsHandler.render();
             var comments = aPost.comments;
             console.log("comments: " + comments.length);
             if (comments.length > 0) {
@@ -16,6 +15,7 @@ Html5Oslo.postsHandler = (function() {
 	            }
             }
         }
+        ratingsHandler.render();
     };
     function init(s, r, c) {
         store = s;

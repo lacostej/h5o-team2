@@ -8,7 +8,7 @@ Html5Oslo.commentsHandler = (function(){
     '</header>' +
     '<form id="commentForm{{index}}" role="addComment" class="hide">' +
         '<label for="name{{index}}">Name:</label>' +
-        '<input id="name{{index}}" type="text" name="name{{index}}" required>' +
+        '<input id="name{{index}}" type="text" name="name{{index}}" required><br>' +
         '<label for="comment{{index}}">Comment:</label>' +
         '<textarea id="comment{{index}}" name="comment{{index}}" class="addCommentText" required></textarea>' +
         '<input type="submit" value="comment">' +
@@ -43,8 +43,10 @@ Html5Oslo.commentsHandler = (function(){
 		$(this).click(showIt);
 	}
 	function showIt(ev) {
-		$("#commentForm" + this.id).removeClass("hide");	
-		$("#commentForm" + this.id).addClass("show");	
+	    var frm = $("#commentForm" + this.id);
+		frm.removeClass("hide");
+		frm.addClass("show");	
+		frm.find(":text")[0].focus();
 		$(this).html("I changed my mind..");
 		$(this).click(hideIt);
 	};
