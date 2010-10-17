@@ -184,7 +184,7 @@ function init()
     help = document.createElement("div");
     help.className = "banner banner-background keyboard-help-banner";
     help.innerHTML = "<div class='features'><div class='primary-message'>Features</div> \
-	                  <ul><li>Multi user editing simulated using persisted login<li>html5 forms and validation<li>canvas (text, transformations + image)<li>reorder elements (drag&drop within page)<li>keyboard shortcuts (navigation)<li>WYWIWIG editor with drag and drop pictures<li>video support</ul></div>  \
+	                  <ul><li>Multi user editing simulated using persisted login<li>html5 forms and validation<li>canvas (text, transformations + image)<li>reorder elements (drag&drop within page) (NOT YET MERGED)<li>keyboard shortcuts (navigation)<li>WYWIWIG editor with drag and drop pictures<li>video support</ul></div>  \
 	                  <div class='primary-message'>Keyboard shortcuts</div> \
                       <div style='height: 120px;' class='secondary-message resized'> \
                       <div id='keyboard-help-container'> \
