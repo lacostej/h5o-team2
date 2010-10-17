@@ -72,3 +72,4 @@
 		
     #loginForm, #logoutForm { float: right; right: 5px; margin-top: 10px;}
     #nameLabel, #loggedInLabel { color: white; }
+	header[role=banner] {color:white; }
