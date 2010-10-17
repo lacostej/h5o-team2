@@ -5,9 +5,13 @@
 	<meta charset="utf-8">
 	<link href="skin.css" type="text/css" rel="stylesheet">
 	<script type="text/javascript" src="jquery-1.4.2.min.js"></script>
+	<script src="myCanvasLogo.js"></script>
+
 	<script>
 	(function() {
 		jQuery(document).ready(function(ev){
+			loadMyLogoCanvas();
+
 		    var store = Html5Oslo.storage;
 		    store.init();
 		    var posts = store.posts();
@@ -29,23 +33,23 @@
 	</script>
 </head>
 <body>
-    <div class="container">
-	    <header>
-		    <h1>Buck blog</h1>
-	    </header>
-	    <section id="content">
-	    </section>
-	    <nav>
-       		<ul>    
-                 <li>sadasdas</li>
-                 <li>sadasdas</li>
-                 <li>sadasdas</li>
-		    </ul>
-        </nav>
-	    <footer>
-		    <small>Just fucking copy this, HTML5 Code Camp 2010</small>
-	    </footer>
-	</div>
+	<header role=banner>
+	    <canvas id="myLogoCanvas" width="300" height="150">
+You should see a nice canvas logo here</canvas>
+		<h1>Buck blog</h1>
+	</header>
+	<section id="content">
+	</section>
+	<nav>
+   		<ul>    
+             <li>sadasdas</li>
+             <li>sadasdas</li>
+             <li>sadasdas</li>
+		</ul>
+    </nav>
+	<footer>
+		<small>Just fucking copy this, HTML5 Code Camp 2010</small>
+	</footer>
 	<script>
 	    var postTemplate = '<article class="post" draggable rel="{{id}}"><header><h1>{{title}}</h1>' +
 		    '<p><time datetime="{{publishDate}}">{{publishDate}}</time></p>' +
