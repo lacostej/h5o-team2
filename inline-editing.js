@@ -1,7 +1,7 @@
 var Html5Oslo = Html5Oslo || {};
 Html5Oslo.inlineHandler = (function() {
     var store;
-    function SetReadonlyMode(obj) {
+    function setReadonlyMode(obj) {
         var prnt = $(obj).parent();
         prnt.find('h2').removeAttr('contenteditable');
         prnt.find('p').removeAttr('contenteditable');
@@ -19,7 +19,7 @@ Html5Oslo.inlineHandler = (function() {
         prnt.find('.cancelPost1').show();
         $('#headingSizeSlider').show();
     }
-    function InitInlineEditingFunctions(s) {
+    function init(s) {
         store = s;
         $('#headingSizeSlider').hide();
         $('.savePost1').hide();
@@ -33,7 +33,7 @@ Html5Oslo.inlineHandler = (function() {
                 SetEditMode(this);
             }
             else {
-                SetReadonlyMode(this);
+                setReadonlyMode(this);
             }
         });
         $('.savePost1').click(function () {
@@ -45,15 +45,15 @@ Html5Oslo.inlineHandler = (function() {
                     pst.title = h2.text();
                     pst.content = p.text();
                     store.savePost(pst);
-                    SetReadonlyMode(this);
+                    setReadonlyMode(this);
                     return;
                 }
             });
-            SetReadonlyMode(this);
+            setReadonlyMode(this);
         });
 
         $('.cancelPost1').click(function () {
-            SetReadonlyMode(this);
+            setReadonlyMode(this);
         });
 
         var dropzone = document.getElementById('drop1');
@@ -98,8 +98,8 @@ Html5Oslo.inlineHandler = (function() {
     }
     return {
         changeHeadingSize: changeHeadingSize,
-        InitInlineEditingFunctions: InitInlineEditingFunctions,
-        SetReadonlyMode: SetReadonlyMode,
+        InitInlineEditingFunctions: init,
+        SetReadonlyMode: setReadonlyMode,
         SetEditMode: SetEditMode
     };
 })();
