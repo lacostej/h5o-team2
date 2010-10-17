@@ -35,6 +35,7 @@
 	</script>
 </head>
 <body>
+    <div class="container">
 	<header role=banner>
 	    <canvas id="myLogoCanvas" width="300" height="150">Framsia Html5 Oslo Code Camp 2010</canvas>
 		<h1>Buck blog</h1>
@@ -51,11 +52,12 @@
 	<footer>
 		<small>Just fucking copy this, HTML5 Code Camp 2010</small>
 	</footer>
+	</div>
 	<script>
     var postTemplate = '<article class="post" draggable rel="{{id}}"><header><h1>{{title}}</h1>' +
 	    '<p><time datetime="{{publishDate}}">{{publishDate}}</time></p>' +
 	    '</header><p>{{content}}</p>' +
-	    '<ul class="comments"></ul>' +
+	    '<strong>Comments:</strong><ul class="comments"></ul>' +
 	    '</article>';
     </script>
 	<script type="text/javascript" src="mustache.js"></script>

@@ -1,7 +1,7 @@
 var Html5Oslo = Html5Oslo || {};
 
 Html5Oslo.commentsHandler = (function(){
-    var commentTemplate = '<li><strong>{{name}}</strong> said <span class="quote">{{content}}</span></li>';
+    var commentTemplate = '<li class="comment"><strong>{{name}}</strong> said:<br> <span class="quote">{{content}}</span></li>';
     var feedbackTemplate = '<article role="feedback">' +
     '<header>' +
     '<a id="{{index}}" class="addCommentAction"  href="#">Give feedback!</a>' +
@@ -54,7 +54,6 @@ Html5Oslo.commentsHandler = (function(){
 	function addComment(post, n,c) {
 	    $(post).find(".comments").each(function(indx,elm){
 	        var comment = {name: n, content: c};
-	        console.log("save comment----:"+post.getAttribute("rel"));
 	        storage.saveComment(post.getAttribute("rel"), comment);
 	        $(elm).append(Mustache.to_html(commentTemplate,comment));
 	    });
@@ -71,12 +70,7 @@ Html5Oslo.commentsHandler = (function(){
         showIt: showIt,
         addFeedbackFields: addFeedbackFields,
         init: function(s){
-            console.log("Store:" + s);
             storage = s;
-            var storedComments = storage.comments();
-/*            for (var i =0,li = storedComments.length; i < li; i++) {
-                $(elm).append(Mustache.to_html(commentTemplate,storedComments[i]));
-            }*/
         }
     };
 })();
