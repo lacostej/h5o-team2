@@ -30,6 +30,7 @@
 //			store.clear();
 
 			InitInlineEditingFunctions();
+			Html5Oslo.usersHandler.init();
 		});
 		function addPost(t,d,c) {
 		    $("#content").append(Mustache.to_html(postTemplate, {title: t, publishedDate: d, content: c}));
