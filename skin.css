@@ -61,7 +61,7 @@
 	}
 	label { 
 	    font-weight: bold;
-	    clear: all;
+	    clear: both;
 	    display:block;
 	}
 	input[type=text], textarea {

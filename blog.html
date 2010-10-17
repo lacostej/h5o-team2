@@ -28,8 +28,7 @@
 		    Html5Oslo.postsHandler.render();
 		    Html5Oslo.commentsHandler.addFeedbackFields();
 //			store.clear();
-
-			InitInlineEditingFunctions();
+			Html5Oslo.inlineHandler.InitInlineEditingFunctions(store);
 		});
 		function addPost(t,d,c) {
 		    $("#content").append(Mustache.to_html(postTemplate, {title: t, publishedDate: d, content: c}));
@@ -67,8 +66,8 @@
     var postTemplate = "<article class='post' rel='{{id}}'> " +
 	        "<header>"+
             "<a class='savePost1' href='#'>Save</a> <a class='editPost1' href='#'>Edit</a> <a class='cancelPost1' href='#'>Cancel</a>" +
-            "<div id='headingSizeSlider'><br />" +
-            "   <input type='range' onchange='changeHeadingSize(event)' id='headingsize' min='15' max='90' value='24' /> " +
+            "<div id='headingSizeSlider'><br>" +
+            "   <input type='range' onchange='changeHeadingSize(event)' id='headingsize' min='15' max='90' value='24'> " +
             "</div> " +
             "<h2 id='h'>{{title}}</h2> " +
             "<p><time datetime='{{publishDate}}'>{{publishDate}}</time></p>" +
@@ -76,8 +75,8 @@
             "<p>{{content}}</p> " +
             "<div> " +
             "<video controls='controls'> " +
-            "<source src='test.mp4' /> " +
-            "<source src='test.ogg' /> " +
+            "<source src='test.mp4'> " +
+            "<source src='test.ogg'> " +
             "</video> " +
             "</div> " +
             "<div id='drop1'>Drop files here</div> " +

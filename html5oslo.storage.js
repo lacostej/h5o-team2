@@ -34,8 +34,8 @@ Html5Oslo.storage = (function() {
         autoSave();
     };
     function init() {
-        store = sessionStorage;
-        repo = localStorage;
+        store = localStorage;
+        repo = sessionStorage;
         if (!repo.blogRepo) {
             autoSave();
         } else {
