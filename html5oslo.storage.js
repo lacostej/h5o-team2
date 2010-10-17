@@ -9,21 +9,26 @@ Html5Oslo.storage = (function() {
     };
     function saveComment(id, obj) {
         if (obj.name) {
-            console.log("saving comment...storage:" + id);
             $(blogRepo.posts).each(function(indx,p){
-                console.log(p.id + " == " + id);
                 if (id == p.id) {
-                    console.log("Found post, saving comment");
                     p.comments.push(obj);
                     autoSave();
                 }
             });
-            console.log("-_____--");
         }    
+    };
+    function saveRating(pst,rat) {
+        $(blogRepo.posts).each(function(i,o){
+            if (o.id == pst.id) {
+                o.rating = rat
+                autoSave();
+                return;
+            }
+        });
+        
     };
     function savePost(obj) {
         if (obj.title) {
-            console.log("save...post");
             blogRepo.posts.push(obj);
         }
         autoSave();
@@ -32,11 +37,9 @@ Html5Oslo.storage = (function() {
         store = sessionStorage;
         repo = localStorage;
         if (!repo.blogRepo) {
-            console.log("Emnpty repo");
             autoSave();
         } else {
             blogRepo = JSON.parse(repo.blogRepo);
-            console.log(blogRepo.posts.length);
         }
     };
     function autoSave(){
@@ -54,6 +57,7 @@ Html5Oslo.storage = (function() {
         saveComment: saveComment,
         comments: listComments,
         posts: listPosts,
-        clear: clear
+        clear: clear,
+        rate: saveRating
     }
 })();

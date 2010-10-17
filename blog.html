@@ -12,20 +12,22 @@
 		    store.init();
 		    var posts = store.posts();
 		    if (posts == null || posts.length==0) {
-		        store.savePost({id: 1, title: "I rock", pubDate: "2010-10-18", content: "I rock rock rock<br>rock rock", rating: 1, comments:[]});
+		        store.savePost({id: 1, title: "I rock", pubDate: "2010-10-18", content: "I rock rock rock<br>rock rock", rating: 2, comments:[]});
 		    }
+		    Html5Oslo.ratingsHandler.init(store);
 		    for (var i=0, li = posts.length; i <li; i++) {
 		        var aPost = posts[i];
 		        var obj = $("#content").append(Mustache.to_html(postTemplate, aPost));
+		        Html5Oslo.ratingsHandler.render();
 		        var comments = aPost.comments;
 		        if (comments.length > 0) {
 		            for (var j=0, lli = comments.length; j<lli; j++) {
     		            Html5Oslo.commentsHandler.renderComment($(obj), comments[j]);
+    		            break;
     		        }
 		        }
 		    }
 			Html5Oslo.commentsHandler.init(store);
-			Html5Oslo.ratingsHandler.init(store);
 //			store.clear();
 		});
 		function addPost(t,d,c) {
@@ -35,21 +37,23 @@
 	</script>
 </head>
 <body>
-	<header>
-		<h1>Buck blog</h1>
-	</header>
-	<section id="content">
-	</section>
-	<nav>
-   		<ul>    
-             <li>sadasdas</li>
-             <li>sadasdas</li>
-             <li>sadasdas</li>
-		</ul>
-    </nav>
-	<footer>
-		<small>Just fucking copy this, HTML5 Code Camp 2010</small>
-	</footer>
+    <div class="container">
+	    <header>
+		    <h1>Buck blog</h1>
+	    </header>
+	    <section id="content">
+	    </section>
+	    <nav>
+       		<ul>    
+                 <li>sadasdas</li>
+                 <li>sadasdas</li>
+                 <li>sadasdas</li>
+		    </ul>
+        </nav>
+	    <footer>
+		    <small>Just fucking copy this, HTML5 Code Camp 2010</small>
+	    </footer>
+	</div>
 	<script>
 	    var postTemplate = '<article class="post" draggable rel="{{id}}"><header><h1>{{title}}</h1>' +
 		    '<p><time datetime="{{publishDate}}">{{publishDate}}</time></p>' +
